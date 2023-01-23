@@ -33,6 +33,13 @@ body {
   }
 }
 
+.tiro{
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  background-color: black;
+}
+
 @keyframes anim-stars {
   from {
       transform: translateY(-550px);

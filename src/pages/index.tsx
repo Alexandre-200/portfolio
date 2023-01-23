@@ -2,10 +2,8 @@ import { useNave } from "@/hooks/useNave";
 import { useState, useEffect } from "react";
 import * as C from "../components/Nave/styles";
 
-
 export default function Home() {
   const [tema, setTema] = useState("light");
-  
 
   const nave = useNave();
 
@@ -16,7 +14,6 @@ export default function Home() {
   }, []);
 
   const handleKeyDown = (e: KeyboardEvent) => {
-       
     switch (e.code) {
       case "KeyA":
       case "ArrowLeft":
@@ -26,7 +23,9 @@ export default function Home() {
       case "ArrowRight":
         nave.moveRight();
         break;
-      
+      case "ArrowUp":
+        atira();
+        break;
     }
   };
 
@@ -36,9 +35,31 @@ export default function Home() {
     setTema(theme);
   };
 
+  const atira = () => {
+   
+    const x = nave.x;
+    const y = nave.y;
+
+    const t = document.createElement("div");
+    const att1 = document.createAttribute("class");
+    const att2 = document.createAttribute("style");
+    att1.value = "tiro";
+    att2.value = "top:" + x + "px; left:" + y + "px;";
+    t.setAttributeNode(att1);
+    t.setAttributeNode(att2);
+    document.body.appendChild(t);
+  };
+
+ 
+
   return (
-    <div className={tema}>
-      <C.Container left={nave.x} size={40} top={nave.y}></C.Container>
+    <div className={`${tema} `}>
+      <C.Container
+        left={nave.x}
+        size={40}
+        top={nave.y}
+        className="nave"
+      ></C.Container>
       <div className="background flex">
         <h1 className="text">Ola tema</h1>
         <button onClick={mudarTema}>Mudar</button>
