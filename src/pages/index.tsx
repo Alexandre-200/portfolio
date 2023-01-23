@@ -5,7 +5,7 @@ import * as C from "../components/Nave/styles";
 
 export default function Home() {
   const [tema, setTema] = useState("light");
-  const [dir, setDir] = useState(0);
+  
 
   const nave = useNave();
 
@@ -22,18 +22,11 @@ export default function Home() {
       case "ArrowLeft":
         nave.moveLeft();
         break;
-      case "KeyW":
-      case "ArrowUp":
-        nave.moveUp();
-        break;
       case "KeyD":
       case "ArrowRight":
         nave.moveRight();
         break;
-      case "KeyS":
-      case "ArrowDown":
-        nave.moveDown();
-        break;
+      
     }
   };
 
@@ -48,7 +41,6 @@ export default function Home() {
       <C.Container left={nave.x} size={40} top={nave.y}></C.Container>
       <div className="background flex">
         <h1 className="text">Ola tema</h1>
-
         <button onClick={mudarTema}>Mudar</button>
       </div>
     </div>

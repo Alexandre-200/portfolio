@@ -1,1 +1,1 @@
-export type NaveSides = "down" | "left" | "right" | "up";
+export type NaveSides =  "left" | "right" ;

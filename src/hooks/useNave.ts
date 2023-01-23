@@ -3,7 +3,7 @@ import { NaveSides } from "./../types/naveSides";
 
 export const useNave = () => {
   const [pos, setPos] = useState({ x: 100, y: 200 });
-  const [side, setSide] = useState<NaveSides>("down");
+  const [side, setSide] = useState<NaveSides>("left");
 
   useEffect(() => {
     const w = window.innerWidth;
@@ -17,7 +17,7 @@ export const useNave = () => {
   //canMove(pos.x - 1, pos.y) ? pos.x - 1 : pos.x,
   const moveLeft = () => {
     setPos((pos) => ({
-      x: canMove(pos.x - 5, pos.y) ? pos.x - 5 : pos.x,
+      x: canMove(pos.x - 10, pos.y) ? pos.x - 10 : pos.x,
       y: pos.y,
     }));
 
@@ -26,34 +26,18 @@ export const useNave = () => {
 
   const moveRight = () => {
     setPos((pos) => ({
-      x: pos.x + 5,
+      x: canMove(pos.x + 10, pos.y) ? pos.x + 10 : pos.x,
       y: pos.y,
     }));
 
     setSide("right");
   };
 
-  const moveDown = () => {
-    setPos((pos) => ({
-      x: pos.x,
-      y: pos.y + 5,
-    }));
 
-    setSide("down");
-  };
-
-  const moveUp = () => {
-    setPos((pos) => ({
-      x: pos.x,
-      y: pos.y - 5,
-    }));
-
-    setSide("up");
-  };
 
   const canMove = (x: number, y: number) => {
-    const h = window.screen.height;
-    const w = window.screen.width;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
     console.log("x " + pos.x + " y " + pos.y);
     return true;
   };
@@ -64,7 +48,6 @@ export const useNave = () => {
     side,
     moveLeft,
     moveRight,
-    moveDown,
-    moveUp,
+   
   };
 };

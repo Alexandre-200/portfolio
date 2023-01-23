@@ -28,6 +28,17 @@ body {
   }
   .background {
     background-color: $dark-700;
+
+    
+  }
+}
+
+@keyframes anim-stars {
+  from {
+      transform: translateY(-550px);
+  }
+  to {
+      transform: translateY(550px);
   }
 }
 
