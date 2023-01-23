@@ -1,0 +1,39 @@
+@use "../abstracts/colors" as *;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.light {
+  .text {
+    color: $dark-900;
+  }
+  .background {
+    background-color: $dark-000;
+  }
+}
+
+.dark {
+  .text {
+    color: white;
+  }
+  .background {
+    background-color: $dark-700;
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
