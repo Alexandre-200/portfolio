@@ -1,0 +1,1 @@
+export type NaveSides = "down" | "left" | "right" | "up";
